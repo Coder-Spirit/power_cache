@@ -4,7 +4,7 @@
 [tool.poetry]
 name = "power_cache"
 version = "0.1.0"
-description = "Simple (but powerfil) Caching Tools"
+description = "Simple (but powerful) Caching Tools"
 authors = ["Andres Correa Casablanca <castarco@coderspirit.xyz>"]
 
 [build-system]

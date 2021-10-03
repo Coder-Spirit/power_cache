@@ -15,6 +15,8 @@ _AF = TypeVar("_AF", bound=Callable[..., Coroutine[Any, Any, Any]])
 
 
 class AsyncMemoize:
+    """Memoization async function decorator."""
+
     def __init__(
         self,
         capacity: int,

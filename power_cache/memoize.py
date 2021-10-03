@@ -9,6 +9,8 @@ _F = TypeVar("_F", bound=Callable[..., Any])
 
 
 class Memoize:
+    """Memoization function decorator."""
+
     def __init__(
         self,
         capacity: int,
