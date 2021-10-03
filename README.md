@@ -9,9 +9,9 @@ Simple (but powerful) Caching Tools.
 
 ## Why another caching library
 
-There are many libraries out there to deal with the same problem this library
-tries to solve, but most of them fall short on at least one of the following
-points:
+There are many libraries out there to deal with the same problem that this
+library tries to solve, but most of them fall short on at least one of the
+following points:
 
 - Minimalism.
 - Providing proper type hints to ease the user's life when using the library.
@@ -95,6 +95,7 @@ assert len(cache) == 0
 ```python
 from power_cache import Memoize
 
+# Runtime annotations are preserved.
 # `capacity` must be always specified, while `cache_type` is "lru" by default.
 @Memoize(capacity=3, cache_type="lru")
 def my_function(): ...
@@ -108,6 +109,7 @@ def another_function(): ...
 ```python
 from power_cache import AsyncMemoize
 
+# Runtime annotations are preserved.
 # `capacity` must be always specified, while `cache_type` is "lru" by default.
 @AsyncMemoize(capacity=3, cache_type="lru")
 async def my_function(): ...
