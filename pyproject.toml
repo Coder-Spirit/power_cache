@@ -6,6 +6,23 @@ name = "power_cache"
 version = "0.1.0"
 description = "Simple (but powerful) Caching Tools"
 authors = ["Andres Correa Casablanca <castarco@coderspirit.xyz>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Coder-Spirit/power_cache"
+repository = "https://github.com/Coder-Spirit/power_cache"
+keywords = ["cache", "lru", "ttl", "decorator"]
+classifiers = [
+    "Environment :: Console",
+    "Environment :: Web Environment",
+    "Environment :: Other Environment",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Intended Audience :: Developers",
+    "Typing :: Typed",
+]
+include = ["LICENSE"]
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
