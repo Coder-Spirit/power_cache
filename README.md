@@ -17,15 +17,20 @@ following points:
 - Minimalism.
 - Providing proper type hints to ease the user's life when using the library.
 - Providing out-of-the-box support for asynchronous functions.
-- Simplicity. One clear example is how cache's capacity is measured. In
-  `power_cache`, capacity is measured just counting items, and not using their
-  size, as other libraries do. There are legitimate reasons to avoid the "sizes
-  approach": it heavily affects performance, and it's highly error prone.
+- Simplicity:
+  - In `power_cache`, capacity is measured just counting items, and not using
+    their size as other libraries do. There are legitimate reasons to avoid the
+    "sizes approach": it decreases performance, and it's highly error prone.
+- Extra flexibility: `power_cache` allows its decorators to not cache certain
+  chosen values. This can be quite handy for some nullish/emptyish results.
 - Correctness:
   - Some popular implementations incorrectly implement `__eq__` by just
     comparing object hashes.
   - Some popular implementations implement `__hash__` in a way that collisions
     will be more frequent than desirable.
+- Performance: Even though `power_cache` is not outstanding in any sense when it
+  comes to performance, at least it avoids some questionable decisions made in other
+  libraries (like relying on `datetime` instead of `monotonic` for `ttl` caches).
 
 ## Usage
 
@@ -103,6 +108,10 @@ def my_function(): ...
 
 @Memoize(capacity=3, cache_type="ttl", ttl=120)
 def another_function(): ...
+
+# We can instruct our memoizer to not save certain results, like `None`
+@Memoize(capacity=3, results_to_discard=(None,))
+def my_function(): ...
 ```
 
 ## AsyncMemoize
@@ -117,4 +126,8 @@ async def my_function(): ...
 
 @AsyncMemoize(capacity=3, cache_type="ttl", ttl=120)
 async def another_function(): ...
+
+# We can instruct our memoizer to not save certain results, like `None`
+@AsyncMemoize(capacity=3, results_to_discard=(None,))
+def my_function(): ...
 ```
