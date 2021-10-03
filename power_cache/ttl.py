@@ -67,9 +67,6 @@ class TTLCache(Generic[_KT, _VT]):
     def __delitem__(self, key):
         del self.__cache[key]
 
-    def __iter__(self):
-        return iter(self.__data)
-
     def __getitem__(self, key: _KT) -> _VT:
         now = monotonic()
         if key in self.__cache:
@@ -81,7 +78,7 @@ class TTLCache(Generic[_KT, _VT]):
         return self.__missing__(key)
 
     def __len__(self):
-        return len(self.__data)
+        return len(self.__cache)
 
     def __missing__(self, key):
         raise KeyError(key)

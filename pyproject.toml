@@ -1,0 +1,72 @@
+# ┌----------------------------------------------------------------------------┐
+# | Package Info                                                               |
+# └----------------------------------------------------------------------------┘
+[tool.poetry]
+name = "power_cache"
+version = "0.1.0"
+description = "Simple (but powerfil) Caching Tools"
+authors = ["Andres Correa Casablanca <castarco@coderspirit.xyz>"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+# ┌----------------------------------------------------------------------------┐
+# | Dependencies                                                               |
+# └----------------------------------------------------------------------------┘
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+autoflake = "^1.4"
+black = "^21.9b0"
+flake8 = "^3.9.2"
+flakehell = "^0.9.0"
+isort = "^5.9.3"
+mypy = "^0.910"
+pep8-naming = "^0.12.1"
+poethepoet = "^0.10.0"
+pylint = "^2.11.1"
+pytest = "^6.2.5"
+pytest-asyncio = "^0.15.1"
+pytest-cov = "^2.12.1"
+pytest-mypy = "^0.8.1"
+
+# ┌----------------------------------------------------------------------------┐
+# | Dev Tools & Automation                                                     |
+# └----------------------------------------------------------------------------┘
+[tool.poe.tasks]
+# WARNING: Don't replace "sh -c '[...]'" by { shell = "[...]"}. It will fail if
+#          you are using a non-POSIX shell (like Fish).
+install-hooks = "sh -c 'if [ -d .git ]; then git config core.hooksPath .hooks; fi'"
+test = "pytest --strict-config --cov=power_cache tests/*.py"
+
+# ┌----------------------------------------------------------------------------┐
+# | Linting Configuration                                                      |
+# └----------------------------------------------------------------------------┘
+[tool.flakehell]
+extended_default_ignore = []
+max_line_length = 100
+format = "grouped"
+show_source = true
+
+[tool.flakehell.plugins]
+flake8-blind-except = ["+*"]
+flake8-bugbear = ["+*"]
+flake8_builtins = ["+*"]
+flake8-comprehensions = ["+*"]
+flake8-docstrings = ["+*", "-D100", "-D107"]
+flake8-executable = ["+*"]
+flake8_simplify = ["+*"]
+pycodestyle = ["+*", "-W503", "-E203"]
+mccabe = ["+*"]
+naming = ["+*"]
+pydocstyle = ["+*"]
+pyflakes = ["+*"]
+pylint = ["+*", "-C0114", "-C0116"]
+rst-docstrings = ["+*"]
+
+[tool.flakehell.exceptions."*/test/*.py"]
+flake8-docstrings = ["-*"]
+rst-docstrings = ["-*"]

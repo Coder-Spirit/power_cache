@@ -44,16 +44,13 @@ class LRUCache(Generic[_KT, _VT]):
     def __delitem__(self, key):
         del self.__cache[key]
 
-    def __iter__(self):
-        return iter(self.__data)
-
     def __getitem__(self, key: _KT) -> _VT:
         if key in self.__cache:
             self.__cache.move_to_end(key)
         return self.__cache[key]
 
     def __len__(self):
-        return len(self.__data)
+        return len(self.__cache)
 
     def __missing__(self, key):
         raise KeyError(key)

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+   poetry check \
+&& poetry run autoflake --remove-all-unused-imports -i -r ./power_cache \
+&& poetry run isort ./power_cache \
+&& poetry run black ./power_cache \
+&& poetry run mypy ./power_cache \
+&& poetry run flakehell lint ./power_cache;

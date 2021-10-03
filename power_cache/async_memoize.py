@@ -2,7 +2,7 @@ from sys import version_info
 from typing import Any, Callable, Literal, Tuple, TypeVar, Union
 
 if version_info >= (3, 9):
-    from collections import Coroutine
+    from collections.abc import Coroutine
 else:
     from typing import Coroutine
 

@@ -1,0 +1,13 @@
+# IDEs
+.idea
+.vscode
+
+# Caches
+.coverage
+.mypy_cache
+.pylance_cache
+.pytest_cache
+__pycache__
+
+# Environment
+.venv
