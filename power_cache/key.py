@@ -6,7 +6,7 @@ class Key:
 
     def __init__(self, args: Tuple[Any, ...], kwargs: Dict[str, Any]) -> None:
         self.__args = args
-        self.__kwargs = kwargs
+        self.__kwargs = tuple(kwargs.items())
 
     def __eq__(self, o: object) -> bool:
         return (

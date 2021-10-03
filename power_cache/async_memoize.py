@@ -56,6 +56,9 @@ class AsyncMemoize:
                     self.__cache[key] = result
                 return result
 
+        # We do this for runtime-type-checking
+        wrapper.__annotations__ = func.__annotations__
+
         return wrapper  # type: ignore
 
 
