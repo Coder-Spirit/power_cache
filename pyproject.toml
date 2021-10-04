@@ -3,7 +3,7 @@
 # └----------------------------------------------------------------------------┘
 [tool.poetry]
 name = "power_cache"
-version = "0.1.0"
+version = "0.1.1"
 description = "Simple (but powerful) Caching Tools"
 authors = ["Andres Correa Casablanca <castarco@coderspirit.xyz>"]
 license = "MIT"

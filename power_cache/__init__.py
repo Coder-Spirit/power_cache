@@ -1,4 +1,4 @@
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .async_memoize import AsyncMemoize
 from .lru import LRUCache
